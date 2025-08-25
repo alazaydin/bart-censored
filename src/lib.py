@@ -2,6 +2,20 @@ import pymc as pm
 import numpy as np
 import pandas as pd
 
+
+def RMSE(err):
+    """Calculate root-mean-squared error of an error vector (x^hat - x)
+
+    Args:
+        err: vector of error values
+
+    Returns:
+        rmse: scalar value
+    """
+    
+    return np.sqrt(np.square(err).sum() / len(err))
+
+
 def recover_parameters(df_r, random_seed=None):
     """Inference of parameter values for a simulated dataset.
 
